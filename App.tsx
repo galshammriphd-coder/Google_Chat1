@@ -44,10 +44,10 @@ const App: React.FC = () => {
         sender: Sender.Bot,
       };
       setMessages((prevMessages) => [...prevMessages, botMessage]);
-    } catch (error) {
+    } catch (error: any) {
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: 'Sorry, something went wrong. Please try again.',
+        text: error?.message || 'Sorry, something went wrong. Please try again.',
         sender: Sender.Bot,
       };
       setMessages((prevMessages) => [...prevMessages, errorMessage]);
